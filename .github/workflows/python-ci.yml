@@ -1,0 +1,40 @@
+name: CI integration
+
+on:
+  push:
+    branches: ["master", "dev"]
+  pull_request:
+    branches: ["master", "dev"]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      # 1 Pick up the code
+      - name: pick the code from repo
+        uses: actions/checkout@v4
+
+      # 2 run the python
+      - name: Install python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      # 3 run dependencies
+      - name: Install the dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install flake8 pytest
+
+      # 4 Linting
+      - name: Lint code with flake8
+        run: flake8 src tests
+
+      # 5 run tests
+      - name: Run tests with pytest
+        run: pytest --maxfail=1 --disable-warnings -q
+
+      # 6 run unit tests
+      - name: Run unit tests
+        run: pytest -m unit
