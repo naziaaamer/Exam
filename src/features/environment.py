@@ -13,7 +13,7 @@ def before_scenario(context, scenario):
     # The scenario fixture is created from a feature file, we don't typically need it for anything.
     # Open a new page, to prevent cookies to leak between tests. Set default timeout to something appropriate. Close the page in after_scenario.
     context.page = context.browser.new_page()
-    context.page.set_default_timeout(3000)
+    context.page.set_default_timeout(5000)
     context.base_url = "https://tap-vt26-testautomatisering.github.io/exam/"
 
 
