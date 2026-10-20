@@ -7,7 +7,7 @@ Feature: view catalog
 
   Scenario: open website and view catalog
 
-    Given the user opens the website
+    Given the user is on start page
     When catalog page has loaded
     Then the "Läslisten" headline should be displayed
     And the "Välkommen!" text should be displayed

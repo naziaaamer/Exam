@@ -36,5 +36,5 @@ jobs:
         run: pytest --maxfail=1 --disable-warnings -q
 
       # 6 run unit tests
-      - name: Run unit tests
-        run: pytest -m unit
+      - name: Run E2E tests
+        run:  python -m behave src/features
