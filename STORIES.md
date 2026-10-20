@@ -25,7 +25,3 @@ As a user,
 I want to see the Statistik showing total number of books and favourites, 
 so that I can keep track of my favourites and Katalog. 
 
-## US6:
-As a user, 
-I want all the interactive button and controls to be clickable, 
-so that I can use website features. 
