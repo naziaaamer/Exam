@@ -5,7 +5,8 @@ class BookStore:
     def addBook(self, title, author):
         books = {
             "title": title,
-            "author": author
+            "author": author,
+            "favorite": False
         }
         self.books.append(books)
 

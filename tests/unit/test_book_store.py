@@ -30,3 +30,16 @@ def test_add_multiple_books():
     assert book_store.books[1]["title"] == "Git Blame and Other Ways to Lose Friends"
     assert book_store.books[1]["author"] == "Linus Torvalds"
 
+
+def test_toggle_favorite():
+    #Arrange
+    book_store = BookStore()
+    book_store.addBook("The Developer Who Knew Nothing", "George R.R. Martin")
+
+    #Act
+    book_store.toggleFavorite(0)
+
+    #Assert
+    assert book_store.books[0]["favorite"] == True
+
+
