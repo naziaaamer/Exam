@@ -2,7 +2,7 @@
 
 class FavoriteBooks:
     def __init__(self):
-        pass
+        self.books = []
 
 
     def add(self,book_id):
