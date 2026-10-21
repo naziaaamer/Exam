@@ -3,7 +3,11 @@ class BookStore:
         self.books = []
 
     def addBook(self, title, author):
-        pass
+        books = {
+            "title": title,
+            "author": author
+        }
+        self.books.append(books)
 
     def toggleFavorite(self, book_id):
         pass
