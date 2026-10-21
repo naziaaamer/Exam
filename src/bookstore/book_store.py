@@ -10,5 +10,12 @@ class BookStore:
         }
         self.books.append(books)
 
-    def toggleFavorite(self, book_id):
-        pass
+    def toggleFavorite(self, book_id: int):
+        book = self.books[book_id]
+
+        if not book["favorite"]:
+            book["favorite"] = True
+
+        else:
+            book["favorite"] = True
+
