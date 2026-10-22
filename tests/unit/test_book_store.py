@@ -1,4 +1,5 @@
 from src.bookstore.book_store import BookStore
+from src.bookstore.fav_books import FavoriteBooks
 
 
 def test_add_book():
@@ -6,43 +7,38 @@ def test_add_book():
     book_store = BookStore()
 
     #Act
-    book_store.addBook("Python för folk som hatar ormar", "Monty Pythonsson")
+    book = book_store.addBook("Python för folk som hatar ormar", "Monty Pythonsson")
 
     #Assert
     assert len(book_store.books) == 1
-    assert book_store.books[0]["title"] == "Python för folk som hatar ormar"
-    assert book_store.books[0]["author"] == "Monty Pythonsson"
+    assert book["title"] == "Python för folk som hatar ormar"
+    assert book["author"] == "Monty Pythonsson"
+    assert book["id"] == 1
 
 
-def test_add_multiple_books():
-    #Arrange
-    book_store = BookStore()
+def test_toggle_favorite_adds_book__mock(mocker):
+    mock_favorites = mocker.Mock(spec=FavoriteBooks)
+    store = BookStore(mock_favorites)
 
-    #Act
-    book_store.addBook("The Developer Who Knew Nothing", "George R.R. Martin")
-    book_store.addBook("Git Blame and Other Ways to Lose Friends", "Linus Torvalds")
+    book = store.addBook("Python for beginners", "Alex")
 
-    #Assert
-    assert len(book_store.books) == 2
-    assert book_store.books[0]["title"] == "The Developer Who Knew Nothing"
-    assert book_store.books[0]["author"] == "George R.R. Martin"
+    store.toggleFavorite(book["id"])
 
-    assert book_store.books[1]["title"] == "Git Blame and Other Ways to Lose Friends"
-    assert book_store.books[1]["author"] == "Linus Torvalds"
+    mock_favorites.add.assert_called_once_with(book)
+    mock_favorites.remove.assert_not_called()
 
 
-def test_toggle_favorite():
-    #Arrange
-    book_store = BookStore()
-    book_store.addBook("The Developer Who Knew Nothing", "George R.R. Martin")
-    book_store.addBook("Git Blame and Other Ways to Lose Friends", "Linus Torvalds")
+def test_toggle_favorite_removes_book__mock(mocker):
+    mock_favorites = mocker.Mock(spec=FavoriteBooks)
+    store = BookStore(mock_favorites)
 
-    #Act
-    book_store.toggleFavorite(0)
-    book_store.toggleFavorite(1)
+    book = store.addBook("Python for beginners", "Alex")
 
-    #Assert
-    assert book_store.books[0]["favorite"] == True
-    assert book_store.books[1]["favorite"] == True
+    store.toggleFavorite(book["id"])
+    mock_favorites.reset_mock()
 
+    store.toggleFavorite(book["id"])
+
+    mock_favorites.remove.assert_called_once_with(book)
+    mock_favorites.add.assert_not_called()
 

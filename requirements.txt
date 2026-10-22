@@ -3,3 +3,4 @@ pytest-playwright
 playwright
 behave
 flake8
+pytest-mock

@@ -6,8 +6,8 @@ class FavoriteBooks:
 
 
     def add(self,book_id):
-        pass
+        self.books.append(book_id)
 
 
     def remove(self,book_id):
-        pass
+        self.books.remove(book_id)
