@@ -1,13 +1,14 @@
-
-
 class FavoriteBooks:
     def __init__(self):
         self.books = []
 
 
-    def add(self,book_id):
-        self.books.append(book_id)
+    def add(self,book):
+        if book not in self.books:
+            self.books.append(book)
 
 
-    def remove(self,book_id):
-        self.books.remove(book_id)
+    def remove(self,book):
+        if book in self.books:
+            self.books.remove(book)
+

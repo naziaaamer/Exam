@@ -1,7 +1,9 @@
+import pytest
+
 from src.bookstore.book_store import BookStore
 from src.bookstore.fav_books import FavoriteBooks
 
-
+@pytest.mark.unit
 def test_add_book():
     #Arrange
     book_store = BookStore()
@@ -15,7 +17,7 @@ def test_add_book():
     assert book["author"] == "Monty Pythonsson"
     assert book["id"] == 1
 
-
+@pytest.mark.unit
 def test_toggle_favorite_adds_book__mock(mocker):
     mock_favorites = mocker.Mock(spec=FavoriteBooks)
     store = BookStore(mock_favorites)
@@ -27,7 +29,7 @@ def test_toggle_favorite_adds_book__mock(mocker):
     mock_favorites.add.assert_called_once_with(book)
     mock_favorites.remove.assert_not_called()
 
-
+@pytest.mark.unit
 def test_toggle_favorite_removes_book__mock(mocker):
     mock_favorites = mocker.Mock(spec=FavoriteBooks)
     store = BookStore(mock_favorites)
