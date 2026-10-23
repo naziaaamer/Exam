@@ -50,7 +50,7 @@ Website: https://tap-vt26-testautomatisering.github.io/exam/
         
     Backend:
         All tests:  
-                    pytest -m
+                    pytest
         Unit: 
                     pytest -m unit -v
         Integration:

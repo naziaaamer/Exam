@@ -10,6 +10,7 @@ def step_open_site(context):
     context.base_page = base_page
     base_page.navigate_to_web()
 
+
 @when(u'catalog page has loaded')
 def step_catalog_load(context):
     expect(context.base_page.initial_heading).to_be_visible()
@@ -23,4 +24,3 @@ def step_display_headline(context):
 @then(u'the "Välkommen!" text should be displayed')
 def step_display_welcome(context):
     expect(context.base_page.welcome_heading).to_be_visible()
-

@@ -2,7 +2,7 @@ import re
 
 
 class AddBook:
-    def __init__(self,page):
+    def __init__(self, page):
         self.page = page
         self.book_title = self.page.get_by_text(re.compile("if tomorrow comes"))
         self.add_book_button = self.page.get_by_role("button", name="Lägg till bok")
@@ -13,10 +13,3 @@ class AddBook:
 
     def navigate(self):
         self.page.goto("https://tap-vt26-testautomatisering.github.io/exam/", timeout=15000)
-
-
-
-
-
-
-

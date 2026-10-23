@@ -14,10 +14,10 @@ def test_add(fav_books):
         "author": "Sidney Sheldon",
     }
 
-    #Act
+    # Act
     fav_books.add(book)
 
-    #Assert
+    # Assert
     assert fav_books.books[0] == book
 
 
@@ -30,8 +30,8 @@ def test_remove(fav_books):
 
     fav_books.add(book)
 
-    #Act
+    # Act
     fav_books.remove(book)
 
-    #Assert
+    # Assert
     assert book not in fav_books.books
