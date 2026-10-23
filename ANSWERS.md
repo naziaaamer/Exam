@@ -37,8 +37,19 @@ business perspective. BBD tests are written in plain language which can is under
 TDD how the single function or unit of code should be tested.
 
 
-## Q:Imagine you were to build a web application similar to the Reading List, including both the frontend and the backend. If you could choose freely,without any constraints, what types of tests would you want to use? Justify your choice.
+## Q:Imagine you were to build a web application similar to the Reading List, including both the frontend and the backend. 
+    If you could choose freely,without any constraints, what types of tests would you want to use? Justify your choice.
 
 
-Functional, API testing, db testing, 
-Non-functional: usability, performance, multi browser 
+Functional
+    unit: test the methods separately. like add book. 
+    integration: test the backend, front end and db communication works properly and are integrated. 
+    E2E: test the whole work flows and features. 
+    DB: test the data is saving and deleting as expected from the db. 
+    API: test the endpoints and see the data is going to DB as expected. 
+
+Non-functional
+    usability: test how easy it is for customers to use the website functionality.
+    performance: response time, loading time with different speed of net and component communication under 
+                 normal usage and under heavy workload.   
+    cross browser: website works properly on different browser. All the UI elements are displayed properly.
