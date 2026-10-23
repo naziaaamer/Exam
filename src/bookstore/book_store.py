@@ -6,7 +6,7 @@ class BookStore:
         self.favorite_ids = set()
 
     def addBook(self, title, author):
-        """book = {
+        book = {
             "id": self.next_book_id,
             "title": title,
             "author": author,
@@ -15,10 +15,9 @@ class BookStore:
         self.books.append(book)
         self.next_book_id += 1
 
-        return book"""
-        pass
+        return book
 
-    def toggleFavorite(self, book_id):
+"""def toggleFavorite(self, book_id):
         book = next(
             (b for b in self.books if b["id"] == book_id), None
         )
@@ -31,4 +30,4 @@ class BookStore:
             self.favorite_books.remove(book)
         else:
             self.favorite_ids.add(book_id)
-            self.favorite_books.add(book)
+            self.favorite_books.add(book)"""
