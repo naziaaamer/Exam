@@ -26,16 +26,19 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
           pip install flake8 
-  
 
-      # 4 Linting
+      # 4. Install Playwright Chromium and system dependencies
+      - name: Install Playwright browser
+        run: python -m playwright install --with-deps chromium
+
+      # 5 Linting
       - name: Lint code with flake8
         run: flake8 src tests
 
-      # 5 run tests
-      - name: Run tests with pytest
+      # 6 run tests
+      - name: Run backend tests with pytest
         run: pytest --maxfail=1 --disable-warnings -q
 
-      # 6 run E2E tests
-      - name: Run E2E tests
+      # 7 run frontend E2E tests
+      - name: Run E2E tests with behave
         run:  python -m behave src/features

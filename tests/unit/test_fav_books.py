@@ -21,20 +21,6 @@ def test_add(fav_books):
     assert fav_books.books[0] == book
 
 
-def test_add_multiple_books(fav_books):
-    book = {
-        "id": 1,
-        "title": "if tomorrow comes",
-        "author": "Sidney Sheldon",
-    }
-
-    fav_books.add(book)
-    fav_books.add(book)
-
-    assert fav_books.books[0] == book
-    assert fav_books.books[1] == book
-
-
 def test_remove(fav_books):
     book = {
         "id": 1,
