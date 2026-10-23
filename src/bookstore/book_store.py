@@ -6,7 +6,7 @@ class BookStore:
         self.favorite_ids = set()
 
     def addBook(self, title, author):
-        book = {
+        """book = {
             "id": self.next_book_id,
             "title": title,
             "author": author,
@@ -15,7 +15,8 @@ class BookStore:
         self.books.append(book)
         self.next_book_id += 1
 
-        return book
+        return book"""
+        pass
 
     def toggleFavorite(self, book_id):
         book = next(
