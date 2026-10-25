@@ -32,7 +32,6 @@ def test_toggle_favorite_adds_book__mock(mocker):
     mock_favorites.remove.assert_not_called()
 
 
-"""
 @pytest.mark.unit
 def test_toggle_favorite_removes_book__mock(mocker):
     mock_favorites = mocker.Mock(spec=FavoriteBooks)
@@ -46,4 +45,4 @@ def test_toggle_favorite_removes_book__mock(mocker):
     store.toggleFavorite(book["id"])
 
     mock_favorites.remove.assert_called_once_with(book)
-    mock_favorites.add.assert_not_called()"""
+    mock_favorites.add.assert_not_called()
