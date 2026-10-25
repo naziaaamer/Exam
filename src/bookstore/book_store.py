@@ -18,12 +18,12 @@ class BookStore:
         return book
 
     def toggleFavorite(self, book_id):
-        pass
-        
+        book = None
 
-        """book = next(
-            (b for b in self.books if b["id"] == book_id), None
-        )
+        for b in self.books:
+            if b["id"] == book_id:
+                book = b
+                break
 
         if book is None:
             raise ValueError("Book not found")
@@ -33,4 +33,4 @@ class BookStore:
             self.favorite_books.remove(book)
         else:
             self.favorite_ids.add(book_id)
-            self.favorite_books.add(book)"""
+            self.favorite_books.add(book)
