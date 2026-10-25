@@ -17,8 +17,11 @@ class BookStore:
 
         return book
 
-"""def toggleFavorite(self, book_id):
-        book = next(
+    def toggleFavorite(self, book_id):
+        pass
+        
+
+        """book = next(
             (b for b in self.books if b["id"] == book_id), None
         )
 

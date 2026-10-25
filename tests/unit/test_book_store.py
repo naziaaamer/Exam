@@ -19,7 +19,7 @@ def test_add_book():
     assert book["id"] == 1
 
 
-"""@pytest.mark.unit
+@pytest.mark.unit
 def test_toggle_favorite_adds_book__mock(mocker):
     mock_favorites = mocker.Mock(spec=FavoriteBooks)
     store = BookStore(mock_favorites)
@@ -32,6 +32,7 @@ def test_toggle_favorite_adds_book__mock(mocker):
     mock_favorites.remove.assert_not_called()
 
 
+"""
 @pytest.mark.unit
 def test_toggle_favorite_removes_book__mock(mocker):
     mock_favorites = mocker.Mock(spec=FavoriteBooks)
