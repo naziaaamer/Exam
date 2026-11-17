@@ -3,6 +3,7 @@ name: CI integration
 on:
   push:
     branches: ["master", "dev"]
+    tags: ["v*"]
   pull_request:
     branches: ["master", "dev"]
 
@@ -42,3 +43,19 @@ jobs:
       # 7 run frontend E2E tests
       - name: Run E2E tests with behave
         run:  python -m behave src/features
+
+      # 8. Install packaging tool
+      - name: Install build tools
+        run: python -m pip install --upgrade build
+
+      # 9. Build Python package
+      - name: Build Bookstore package
+        run: python -m build
+
+      # 10. Upload package to GitHub
+      - name: Upload package artifact
+        uses: actions/upload-artifact@v4
+        with:
+              name: bookstore-package
+              path: dist/
+              if-no-files-found: error

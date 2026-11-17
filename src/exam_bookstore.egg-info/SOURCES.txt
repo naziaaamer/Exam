@@ -1,0 +1,9 @@
+README.md
+pyproject.toml
+src/bookstore/__init__.py
+src/bookstore/book_store.py
+src/bookstore/fav_books.py
+src/exam_bookstore.egg-info/PKG-INFO
+src/exam_bookstore.egg-info/SOURCES.txt
+src/exam_bookstore.egg-info/dependency_links.txt
+src/exam_bookstore.egg-info/top_level.txt
